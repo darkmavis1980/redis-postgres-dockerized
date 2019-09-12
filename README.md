@@ -5,3 +5,7 @@ This is a simple Redis & PostgreSQL configuration to run in a dockerized inviron
 ## How to run it
 
 Simply run `docker-compose up -d` to start up the services.
+
+### Note
+
+PostgreSQL is locked at version 10
