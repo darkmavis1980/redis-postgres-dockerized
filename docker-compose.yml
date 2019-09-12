@@ -1,0 +1,27 @@
+version: "3"
+services:
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - 6379:6379
+    expose:
+      - 6379
+    volumes:
+      - ./.redisdata:/data
+    networks:
+      - webnet
+  db:
+    image: postgres:10
+    restart: always
+    volumes:
+      - ./.pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    networks:
+      - webnet
+networks:
+  webnet:
